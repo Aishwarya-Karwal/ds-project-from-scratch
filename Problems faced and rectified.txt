@@ -1,0 +1,8 @@
+Problems faced during DS project
+
+1) During WebScraping : 
+	- the html content of glassdoor was completely changed
+	- the selenium functions in new version were diff from old so learned new functions by doing
+	- handling of pop up for sign-up - rectified by chatgpt at the end after looking at potential solutions online (stackoverflow etc)
+	- getting wrong value for job_title
+	- getting NoSuchElementException for job_description 
