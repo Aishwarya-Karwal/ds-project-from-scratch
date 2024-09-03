@@ -6,3 +6,24 @@ Problems faced during DS project
 	- handling of pop up for sign-up - rectified by chatgpt at the end after looking at potential solutions online (stackoverflow etc)
 	- getting wrong value for job_title
 	- getting NoSuchElementException for job_description 
+    
+2) Got around 70 percent duplicate data after scraping - thought to use the -1 valued salary column rows as test set but the training set that is the rows with salary values had only 20% of its data as unique .... leaving us with less data in training and more data in testing.
+    * thinking to re scrape the data with more waits added as per the requirement
+    * putting the jobs in set to avoid any duplicates
+    * correctly clicking the show more jobs button as and when required.
+    
+Tried everything but couldn't get more than around 150 unique jobs rows...
+
+Current path to follow - Do analysis on the scraped data and build model as well if model does not perform well then take the downloaded dataset to do analysis and modeling on..
+
+This way we would have knowledge of 2 things  : 
+    1) analysis on both the data sets
+    2) that less training data does spoil the results of prediction !
+    
+EDA - 
+* in eda draw a pie chart or something to see what all are the most frequently asked skills for data science jobs
+* also see how skills affect the salary column after encoding them 
+
+
+
+Also handle the null values in the analysis phase.
