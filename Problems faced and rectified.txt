@@ -24,6 +24,11 @@ EDA -
 * in eda draw a pie chart or something to see what all are the most frequently asked skills for data science jobs
 * also see how skills affect the salary column after encoding them 
 
+felt the need for scaling in the eda phase itself because of unclear heatmap.
 
 
 Also handle the null values in the analysis phase.
+
+in EDA PHASE : 
+    -  the trend in graph that director is having only the junior tag does not stand with our classification that we did for senior tag
+    -  to rectify we grouped on the basis of both job_simp and senior tag
