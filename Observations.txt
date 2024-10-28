@@ -1,0 +1,6 @@
+- we will use that subset of data as test set which has salary as -1 initially since that is substantial no. of records
+- we noticed we mostly have skewed data so maybe we can apply minmax scaling
+- we can even try later during modelling which scaler gives us better accuracy
+
+# also i am thinking to fit an ANN and see accuracy of predictions rather than just simply using basic ML models
+# also we can try fitting a lasso regression to do feature selection automatically to improve accuracy
