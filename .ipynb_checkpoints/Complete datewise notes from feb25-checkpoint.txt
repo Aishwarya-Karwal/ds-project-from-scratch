@@ -1,0 +1,66 @@
+sb try kiya .. also tried agglomerative clustering .. that grouped in around 2 clusters
+6 feb 25
+- saw statsmodels summary results for linear regression model -> 
+- dono hi data pr pca and non pca even using dynamic feature filtering rfe technique - no improvement - very few 3-4 features after pca were having pvalue significant < 0.05 out of 98 features after pca
+
+7 feb 25
+- on newly preprocessed data applied scaling to 3 columns - age, rating and size_company
+- then without description column applied linear regression again
+- still no significant improvement in results - overfitting with 78 percent r2 on train and negative r2 on test
+- statsmodels says no coef significant
+- applied pca but still similar situation - now even training performance is bad but testing has slightly improved - still negative
+- found autocorrelation between resuduals by ols model summary output - durbin
+- Autocorrelation means past prediction errors are affecting new predictions, which suggests a trend in the data that OLS is failing to model.
+
+https://chatgpt.com/c/67a47732-d8cc-8000-82ba-0ee29b50a31a - next steps
+
+Next learn about lr assumptions and check them on your data - then perform corrective measures - 9-2-25 
+
+11 feb 25
+- scaled almost all columns except those with only 0,1 or 0,1,2 as values
+- checked linear regression assumptions on the data - found without pca - there is multicollinearity between columns 
+and there is autocoorelation between residuals as well
+for data with pca - all other assumptions work fine except the linear relationship of columns with the ytrain - telling us linear regression would not be a good choice - that is why none of the coefficients were significant in ols summary and the r2 remained negative 
+
+
+next steps - try models like svm to capture the relationship in data - but it still might not work becoz we saw that the scatter plots showed almost not relation between input and output column
+if it doesnt work - replace -1 in salary data with some imputation technique and then re-split data to train test and then properly retake all steps again !
+
+
+~ 15 feb 25
+trid svm regressor and xgboost regressor as well , but they too performed in a terrible fashion with negative r2 and around 2.25 lakh mae
+
+20 feb 25
+- tried log transform , quantile transform on the salary column to change dist f slary col which was originally right skewed
+- then with this tried models' performance - no improvement
+- computed avg_salary with the job_simp median of grps
+- then modeled with no improvement
+
+## heartfelt i have to conclude that my data does not have predictive powers for the salary column ..
+
+
+## final next steps --> shift your focus to making it a classification project --> classifying data to different job_roles based on ffew important seeming columns like , skills, description (if using only these 2 .. then it will mainly be shifted to an nlp based rnn type of classification problem ..)
+company name , location can be taken but i dont think they should add much meaning to the task !
+
+for this u can either use final_data.csv (its not encoded yet)
+or encoded_salary_plus_imputed_df.csv and description.csv but take care since their shapes are different !
+
+started with classification notebook - now i have to bring in the preprocessing i took earlier to encode columns, into account. 
+
+21 feb 25
+- preprocessed data - skills, description, seniority level - bow encoding used
+- applied randomforestclassifier - got ~75% accuracy approx
+
+Next steps - try word2vec dense vector embedding
+
+24 feb 25
+- again applied bow , but this time after train_test_split to prevent data leakage , but label encoder on label column done before split to prevent oob values
+- got 76 percent accuracy , then tried naive bayes - giving similar performance
+- combined seniority column as well in predictions - achieved 77% accuracy after this step from both the models
+- tried countvectorizer i.e. bow , with automatic stopwords removal as well, but with same results - 77 %
+
+next steps - 
+- try chatgpt steps in ur last chat related to class imbalance - https://chatgpt.com/c/67bc67c5-32fc-8000-8c4e-8bb9f621ed5e
+- try tfidf , then word2vec and also try handling class imbalance with them !
+
+All the best !

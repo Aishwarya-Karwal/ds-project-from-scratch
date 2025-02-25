@@ -1,0 +1,58 @@
+Comparison
+Encoding Type	Data Type	Usage	Purpose
+Frequency	Categorical	Replace category with its frequency/count	Compress high-cardinality columns, useful for tree models
+Target	Categorical	Replace category with the mean (or statistic) of the target	Capture the relationship between category and target
+Bag of Words	Text	Convert text into numerical vectors of word counts	For text data, especially NLP tasks
+
+
+Frequency Encoding
+What it is: In frequency encoding, each category in a column is replaced by the frequency (or count) of that category in the dataset.
+Why it's used: It provides numerical values for categorical data without creating many new columns (as one-hot encoding does). It's particularly helpful for high-cardinality data (columns with many unique categories).
+Example:
+If the "Type" column contains:
+
+Type: [Private, Public, Private, Private, Public, Government]
+Frequency encoding will replace it as:
+
+Private → 3
+Public → 2
+Government → 1
+
+When to Use:
+When the frequency of a category is meaningful for prediction (e.g., company popularity, product demand).
+Suitable for tree-based models like Random Forest or XGBoost.
+
+
+Target Encoding
+What it is: In target encoding, each category in a column is replaced by the mean (or other statistic) of the target variable for that category.
+Why it's used: It helps the model capture the relationship between the categorical feature and the target variable.
+Example:
+If "Revenue" is the target and "Type" is a categorical column:
+
+Type: [Private, Public, Government]
+Revenue: [100, 200, 150, 180, 250, 120]
+Calculate the mean revenue for each type:
+
+Private → (100 + 180 + 120) / 3 = 133.33
+Public → (200 + 250) / 2 = 225
+Government → (150) = 150
+Replace "Type" with these values:
+
+Private → 133.33
+Public → 225
+Government → 150
+When to Use:
+Works well for linear models and neural networks.
+Best for datasets where the target variable’s relationship with the categorical variable is strong.
+Caution: Overfitting can happen on small datasets, so use techniques like K-fold target encoding.
+
+
+
+
+Bag of Words (BoW) Encoding
+Bag of Words is not frequency encoding or target encoding—it's a text-processing technique used to convert textual data into numerical vectors. Let’s differentiate:
+
+What is BoW?
+BoW is used for text data.
+It creates a vocabulary of unique words in the dataset and represents each text instance as a vector of word counts.
+No relationship with target values or category frequencies—it's purely based on text features.

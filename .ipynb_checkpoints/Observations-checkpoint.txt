@@ -2,5 +2,13 @@
 - we noticed we mostly have skewed data so maybe we can apply minmax scaling
 - we can even try later during modelling which scaler gives us better accuracy
 
+
 # also i am thinking to fit an ANN and see accuracy of predictions rather than just simply using basic ML models
 # also we can try fitting a lasso regression to do feature selection automatically to improve accuracy
+
+Note that from the distplot of our avg_salary column , we can see that the data is right skewed and there are outliers there..
+
+We can think of shifting our focus from salary prediction to classification into a job_title according to the skills and salary field or any other field maybe !
+Also we can think of applying clustering techniques to see clusters in our data based on skills and salary and job title !
+
+Movie recommender system m jo bhi humare text columns the vo humne saare words sbhi columns k ek sath hi encode kr diye using bag of words on all the columns combined.
