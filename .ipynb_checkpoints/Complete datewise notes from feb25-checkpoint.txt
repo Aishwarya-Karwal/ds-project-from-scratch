@@ -63,4 +63,18 @@ next steps -
 - try chatgpt steps in ur last chat related to class imbalance - https://chatgpt.com/c/67bc67c5-32fc-8000-8c4e-8bb9f621ed5e
 - try tfidf , then word2vec and also try handling class imbalance with them !
 
+25 feb 25
+- for class imbalance - done some feature engineering again and combined class categories which had very less records around 1, 2, 3, till single digits ones,
+- this imporved the accuracy of all the tried models - logistic and random forest to 77.33 % and for naive bayes to 80 % 
+- also tried SMOTEN technique - to generate synthetic data for the category with less classes
+- still could reach to 80 % itself
+
+- also tried tfidf and then w2v - no improvement in accuracy - rather reduced
+
+
+### Final Conclusions : 
+- Naive Bayes - 80 percent best with bag of words
+- Random Forest - 78.6 best with tf-idf - with w2v - 70 % and after smote - 73.33%
+- Logistic regression - good - 77 with bow - but less 69.3 with tfidf and 37.3 with w2v - it even reduced after smote - maybe because of non linearity from both smoten and w2v
+
 All the best !
